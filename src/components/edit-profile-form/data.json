@@ -1,0 +1,235 @@
+{
+  "editProfileInputs": [
+    {
+      "name": "userName",
+      "type": "text",
+      "id": "user-name",
+      "placeholder": "Your Name",
+      "labelText": "Your Name",
+      "testId": "user-name",
+      "validation": {
+        "required": { "value": true, "message": "This field is required" },
+        "maxLength": {
+          "value": 20,
+          "message": "The allowed length is no more than 20 characters"
+        },
+        "minLength": {
+          "value": 2,
+          "message": "The length should be 2 characters or more"
+        }
+      }
+    },
+    {
+      "name": "storeName",
+      "type": "text",
+      "id": "store-name",
+      "placeholder": "Store Name",
+      "labelText": "Store Name",
+      "testId": "store-name",
+      "validation": {
+        "maxLength": {
+          "value": 20,
+          "message": "The allowed length is no more than 20 characters"
+        },
+        "minLength": {
+          "value": 2,
+          "message": "The length should be 2 characters or more"
+        }
+      }
+    },
+    {
+      "name": "location",
+      "type": "select",
+      "id": "location",
+      "placeholder": "Your location",
+      "labelText": "Location",
+      "testId": "location",
+      "validation": {
+        "required": { "value": true, "message": "This field is required" }
+      },
+      "options": [
+        { "value": "ukraine", "label": "Ukraine" },
+        { "value": "poland", "label": "Poland" },
+        { "value": "slovakia", "label": "Slovakia" }
+      ]
+    },
+    {
+      "name": "currency",
+      "type": "select",
+      "id": "currency",
+      "placeholder": "Select Currency",
+      "labelText": "Currency",
+      "testId": "currency",
+      "validation": {
+        "required": { "value": true, "message": "This field is required" }
+      },
+      "options": [
+        { "value": "us-dollars", "label": "US Dollar ($)" },
+        { "value": "ukr-hryvnia", "label": "Ukrainian hryvnia (₴)" }
+      ]
+    },
+    {
+      "name": "email",
+      "type": "email",
+      "id": "email",
+      "placeholder": "Your email",
+      "labelText": "Email",
+      "testId": "email",
+      "validation": {
+        "required": {
+          "value": true,
+          "message": "This field is required"
+        },
+        "pattern": {
+          "value": "/\\S+@\\S+\\.\\S+/",
+          "message": "You should provide an valid email"
+        }
+      }
+    },
+    {
+      "name": "phone",
+      "type": "tel",
+      "id": "phone",
+      "placeholder": "Your phone number",
+      "labelText": "Phone",
+      "testId": "phone",
+      "validation": {
+        "required": { "value": true, "message": "This field is required" },
+        "maxLength": {
+          "value": 20,
+          "message": "The allowed length is no more than 20 characters"
+        },
+        "minLength": {
+          "value": 2,
+          "message": "The length should be 2 characters or more"
+        }
+      }
+    },
+    {
+      "name": "address",
+      "type": "text",
+      "id": "address",
+      "placeholder": "Your address",
+      "labelText": "Address",
+      "testId": "address",
+      "validation": {
+        "required": { "value": true, "message": "This field is required" },
+        "minLength": {
+          "value": 2,
+          "message": "The length should be 2 characters or more"
+        }
+      }
+    }
+  ],
+  "changePasswordInputs": [
+    {
+      "name": "currentPassword",
+      "type": "password",
+      "id": "current-password",
+      "placeholder": "Your current password",
+      "labelText": "Current Password",
+      "testId": "current-password",
+      "validation": {
+        "required": { "value": true, "message": "This field is required" },
+        "maxLength": {
+          "value": 20,
+          "message": "The allowed length is no more than 20 characters"
+        },
+        "minLength": {
+          "value": 2,
+          "message": "The length should be 2 characters or more"
+        }
+      }
+    },
+    {
+      "name": "newPassword",
+      "type": "password",
+      "id": "new-password",
+      "placeholder": "Your new password",
+      "labelText": "New Password",
+      "testId": "new-password",
+      "validation": {
+        "required": { "value": true, "message": "This field is required" },
+        "maxLength": {
+          "value": 20,
+          "message": "The allowed length is no more than 20 characters"
+        },
+        "minLength": {
+          "value": 2,
+          "message": "The length should be 2 characters or more"
+        }
+      }
+    },
+    {
+      "name": "confirmPassword",
+      "type": "password",
+      "id": "confirm-password",
+      "placeholder": "Confirm password",
+      "labelText": "Confirm Password",
+      "testId": "confirm-password",
+      "validation": {
+        "required": { "value": true, "message": "This field is required" },
+        "shouldMatch": {
+          "value": "newPassword",
+          "message": "The passwords should match"
+        }
+      }
+    }
+  ],
+  "editNotificationsInputs": [
+    {
+      "name": "orderConfirmation",
+      "type": "checkbox",
+      "id": "order-confirmation",
+      "labelText": "Order Confirmation",
+      "additionalText": "You will be notified when customer order any product",
+      "testId": "order-confirmation"
+    },
+    {
+      "name": "orderStatusChanged",
+      "type": "checkbox",
+      "id": "order-status-changed",
+      "labelText": "Order Status Changed",
+      "additionalText": "You will be notified when customer make changes to the order",
+      "testId": "order-status-changed"
+    },
+    {
+      "name": "orderDelivered",
+      "type": "checkbox",
+      "id": "order-delivered",
+      "labelText": "Order Delivered",
+      "additionalText": "You will be notified once the order is delivered",
+      "testId": "order-delivered"
+    },
+    {
+      "name": "emailNotification",
+      "type": "checkbox",
+      "id": "email-notification",
+      "labelText": "Email Notification",
+      "additionalText": "Turn on email notification to get updates through email",
+      "testId": "email-notification"
+    }
+  ],
+  "defaultFormValues": {
+    "defaultProfileValues": {
+      "userName": "",
+      "storeName": "",
+      "location": "",
+      "currency": "",
+      "email": "",
+      "phone": "",
+      "address": ""
+    },
+    "defaultPasswordValues": {
+      "currentPassword": "",
+      "newPassword": "",
+      "confirmPassword": ""
+    },
+    "defaultNotificationValues": {
+      "orderConfirmation": false,
+      "orderStatusChanged": false,
+      "orderDelivered": false,
+      "emailNotification": true
+    }
+  }
+}
