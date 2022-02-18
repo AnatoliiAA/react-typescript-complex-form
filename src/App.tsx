@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Global } from "@emotion/react";
 import { reset, global } from "./theme";
 import EditProfilePage from "./components/edit-profile-page/EditProfilePage";

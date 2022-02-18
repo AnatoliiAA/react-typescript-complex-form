@@ -4,10 +4,10 @@ import { CustomError } from "../CustomError";
 import { InputWrapper } from "../InputWrapper";
 import { InputSelect, Label } from "./Select.css";
 
-type Select = InputType & {
+type SelectProps = InputType & {
   options?: Array<{ label: string; value: string }>;
 };
-export const SelectInput = ({
+const SelectInput = ({
   id,
   name,
   labelText,
@@ -17,7 +17,7 @@ export const SelectInput = ({
   options,
   errors,
   validation,
-}: Select): JSX.Element => (
+}: SelectProps): JSX.Element => (
   <InputWrapper>
     <Label htmlFor={id}>{labelText}</Label>
     <InputSelect
@@ -27,7 +27,7 @@ export const SelectInput = ({
       data-testid={testId}
       {...register(name, validation)}
     >
-      <option value="" disabled selected>
+      <option value="" disabled>
         {placeholder}
       </option>
       {options.map(
@@ -45,3 +45,5 @@ export const SelectInput = ({
     />
   </InputWrapper>
 );
+
+export default SelectInput;

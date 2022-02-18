@@ -1,4 +1,3 @@
-import React from "react";
 import Searchbar from "../searchbar/Searchbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faChevronDown } from "@fortawesome/free-solid-svg-icons";

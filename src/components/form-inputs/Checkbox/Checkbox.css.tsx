@@ -10,7 +10,7 @@ export const CheckboxWrapper = styled.div`
   border: 1px solid lightgray;
   border-top: none;
   border-radius: 5px;
-  &:first-child {
+  &:first-of-type {
     border-top: 1px solid lightgray;
   }
 `;
@@ -51,12 +51,12 @@ export const InputField = styled.input`
     background-color: white;
     top: 2px;
     left: 2px;
-    transition: left 0.2s ease-out;
+    transition: transform 0.2s ease-out;
   }
   &:checked {
     background-color: #007aff;
     &::before {
-      left: 22px;
+      transform: translateX(20px);
     }
   }
 `;

@@ -1,8 +1,8 @@
 import _ from "lodash";
 import { useForm } from "react-hook-form";
-import { Input } from "../form-inputs/Input/Input";
-import { SelectInput } from "../form-inputs/Select/Select";
-import { Checkbox } from "../form-inputs/Checkbox/Checkbox";
+import Input from "../form-inputs/Input/Input";
+import SelectInput from "../form-inputs/Select/Select";
+import Checkbox from "../form-inputs/Checkbox/Checkbox";
 import {
   ButtonsWrapper,
   Fieldset,

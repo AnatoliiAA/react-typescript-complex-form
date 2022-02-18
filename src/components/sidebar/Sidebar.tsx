@@ -29,7 +29,7 @@ const linksData: Array<linkDataType> = [
 ];
 
 const generateNavLinks = (data: linkDataType): JSX.Element => (
-  <NavigationLink>
+  <NavigationLink key={data.text}>
     <FontAwesomeIcon icon={data.icon} />
     {data.text}
   </NavigationLink>

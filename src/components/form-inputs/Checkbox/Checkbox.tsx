@@ -1,6 +1,4 @@
 import { InputType } from "../../../common-types";
-import { ErrorMessage } from "@hookform/error-message";
-import { CustomError } from "../CustomError";
 import {
   AdditionalText,
   CheckboxWrapper,
@@ -9,17 +7,16 @@ import {
   TextWrapper,
 } from "./Checkbox.css";
 
-type Checkbox = InputType;
+type CheckboxProps = InputType;
 
-export const Checkbox = ({
+const Checkbox = ({
   id,
   name,
   labelText,
   additionalText,
   testId,
   register,
-  errors,
-}: Checkbox): JSX.Element => (
+}: CheckboxProps): JSX.Element => (
   <CheckboxWrapper>
     <TextWrapper>
       <Label htmlFor={id}>{labelText}</Label>
@@ -34,3 +31,5 @@ export const Checkbox = ({
     />
   </CheckboxWrapper>
 );
+
+export default Checkbox;

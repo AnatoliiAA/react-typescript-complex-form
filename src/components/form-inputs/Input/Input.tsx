@@ -4,7 +4,7 @@ import { CustomError } from "../CustomError";
 import { InputWrapper } from "../InputWrapper";
 import { InputField, Label } from "./Input.css";
 
-export const Input = ({
+const Input = ({
   id,
   name,
   type,
@@ -53,3 +53,5 @@ export const Input = ({
     </InputWrapper>
   );
 };
+
+export default Input;
