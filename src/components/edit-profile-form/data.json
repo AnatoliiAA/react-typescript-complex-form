@@ -81,7 +81,7 @@
           "message": "This field is required"
         },
         "pattern": {
-          "value": "/\\S+@\\S+\\.\\S+/",
+          "value": "\\S+@\\S+\\.\\S+",
           "message": "You should provide an valid email"
         }
       }

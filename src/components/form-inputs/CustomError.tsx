@@ -1,4 +1,7 @@
 import styled from "@emotion/styled";
+type ErrorProps = {
+  role: string;
+};
 
 export const CustomError = styled.p`
   color: red;

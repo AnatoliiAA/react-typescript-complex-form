@@ -48,7 +48,9 @@ const Input = ({
       <ErrorMessage
         errors={errors}
         name={name}
-        render={({ message }) => <CustomError>{message}</CustomError>}
+        render={({ message }) => (
+          <CustomError role="alert">{message}</CustomError>
+        )}
       />
     </InputWrapper>
   );

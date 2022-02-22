@@ -4,17 +4,21 @@ export const Form = styled.form`
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   width: calc(100% - 40px);
   margin: 20px;
   background-color: white;
   border-radius: 20px;
 `;
+
 export const FormColumn = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 100%;
+  @media only screen and (min-width: 768px) {
+    width: 50%;
+  }
 `;
 
 export const FieldsetHeader = styled.span`
@@ -36,7 +40,10 @@ export const Fieldset = styled.fieldset`
 export const ButtonsWrapper = styled.div`
   display: flex;
   width: 100%;
-  justify-content: flex-end;
+  justify-content: center;
+  @media only screen and (min-width: 1024px) {
+    justify-content: flex-end;
+  }
 `;
 
 export const SubmitButton = styled.button`

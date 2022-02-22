@@ -4,6 +4,8 @@ import {
   Navigation,
   NavigationLink,
   LogoLink,
+  BurgerMenu,
+  BurgerMenuWrapper,
 } from "./Sidebar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,6 +18,7 @@ import {
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import logo from "../../static/Logo.png";
+import { useState } from "react";
 
 type linkDataType = { text: string; icon: IconDefinition };
 
@@ -35,15 +38,25 @@ const generateNavLinks = (data: linkDataType): JSX.Element => (
   </NavigationLink>
 );
 
-const Sidebar = (): JSX.Element => (
-  <SidebarWrapper>
-    <LogoLink href="#">
-      <Logo src={logo} />
-    </LogoLink>
-    <Navigation>
-      {linksData.map((linkData: linkDataType) => generateNavLinks(linkData))}
-    </Navigation>
-  </SidebarWrapper>
-);
+const Sidebar = (): JSX.Element => {
+  const [menuActive, setMenuActive] = useState(false);
+
+  return (
+    <SidebarWrapper isActive={menuActive}>
+      <BurgerMenuWrapper
+        isActive={menuActive}
+        onClick={() => setMenuActive(!menuActive)}
+      >
+        <BurgerMenu isActive={menuActive} />
+      </BurgerMenuWrapper>
+      <LogoLink href="#">
+        <Logo src={logo} />
+      </LogoLink>
+      <Navigation>
+        {linksData.map((linkData: linkDataType) => generateNavLinks(linkData))}
+      </Navigation>
+    </SidebarWrapper>
+  );
+};
 
 export default Sidebar;

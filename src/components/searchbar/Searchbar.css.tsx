@@ -4,8 +4,15 @@ export const SearchWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  width: 400px;
+  width: 100%;
+  margin-left: 50px;
   height: 40px;
+  @media only screen and (min-width: 768px) {
+    margin-left: 0;
+  }
+  @media only screen and (min-width: 1024px) {
+    width: 50%;
+  }
 `;
 
 export const SearchIcon = styled.div`

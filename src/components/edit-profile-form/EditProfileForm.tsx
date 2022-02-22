@@ -58,7 +58,7 @@ const createInput = (
     <p>Invalid type definition</p>
   );
 
-export const EditProfileForm = (): JSX.Element => {
+const EditProfileForm = (): JSX.Element => {
   const {
     defaultProfileValues,
     defaultPasswordValues,
@@ -184,6 +184,9 @@ export const EditProfileForm = (): JSX.Element => {
         },
         body: JSON.stringify(submitData),
       });
+      // resetNotificationValues();
+      // resetPasswordValues();
+      // resetProfileValues();
     }
   };
 
@@ -231,3 +234,5 @@ export const EditProfileForm = (): JSX.Element => {
     </Form>
   );
 };
+
+export default EditProfileForm;

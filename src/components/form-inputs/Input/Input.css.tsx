@@ -4,7 +4,7 @@ export const InputField = styled.input`
   box-sizing: border-box;
   width: 100%;
   height: 40px;
-  margin: 0 0 15px 0;
+  margin-bottom: 25px;
   padding: 0 5px;
   border: none;
   background-color: white;
@@ -12,6 +12,9 @@ export const InputField = styled.input`
   border-radius: 5px;
   &:focus {
     box-shadow: 0px 6px 10px -5px #007aff;
+  }
+  @media only screen and (min-width: 480px) {
+    margin-bottom: 15px;
   }
 `;
 

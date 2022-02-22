@@ -4,15 +4,23 @@ export const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: calc(100% - 40px);
-  height: 70px;
+  height: 120px;
   margin: 10px 20px;
+  @media only screen and (min-width: 1024px) {
+    flex-wrap: nowrap;
+    height: 70px;
+  }
 `;
 
 export const UserPanel = styled.div`
   display: flex;
   justify-content: flex-end;
-  width: 50%;
+  width: 100%;
+  @media only screen and (min-width: 1024px) {
+    width: 50%;
+  }
 `;
 
 export const Notification = styled.button`
@@ -27,7 +35,7 @@ export const Notification = styled.button`
   font-size: 16px;
   border: none;
   background-color: white;
-  transition: box-shadow .05s ease-in;
+  transition: box-shadow 0.05s ease-in;
   cursor: pointer;
   &:active {
     box-shadow: 0px 6px 10px -5px #007aff;

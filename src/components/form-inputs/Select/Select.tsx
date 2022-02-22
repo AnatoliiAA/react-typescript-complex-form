@@ -7,6 +7,7 @@ import { InputSelect, Label } from "./Select.css";
 type SelectProps = InputType & {
   options?: Array<{ label: string; value: string }>;
 };
+
 const SelectInput = ({
   id,
   name,
@@ -41,7 +42,9 @@ const SelectInput = ({
     <ErrorMessage
       errors={errors}
       name={name}
-      render={({ message }) => <CustomError>{message}</CustomError>}
+      render={({ message }) => (
+        <CustomError role="alert">{message}</CustomError>
+      )}
     />
   </InputWrapper>
 );

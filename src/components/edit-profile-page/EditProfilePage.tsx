@@ -1,4 +1,4 @@
-import { EditProfileForm } from "../edit-profile-form/EditProfileForm";
+import EditProfileForm from "../edit-profile-form/EditProfileForm";
 import Header from "../header/Header";
 import Sidebar from "../sidebar/Sidebar";
 import { Content, Wrapper } from "./EditProfilePage.css";

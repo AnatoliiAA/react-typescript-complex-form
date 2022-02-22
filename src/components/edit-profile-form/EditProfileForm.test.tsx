@@ -4,11 +4,11 @@ import {
   getByTestId,
   findByText,
   findAllByText,
-  prettyDOM,
   waitFor,
+  queryAllByRole,
 } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { EditProfileForm } from "./EditProfileForm";
+import EditProfileForm from "./EditProfileForm";
 
 const testIds = {
   editProfileForm: "edit-profile-form",
@@ -37,6 +37,12 @@ const errorMessages = {
   invalidEmail: "You should provide an valid email",
 };
 
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve({ test: 100 }),
+  })
+) as jest.Mock;
+
 describe("Edit profile form tests", () => {
   const {
     editProfileForm,
@@ -50,10 +56,6 @@ describe("Edit profile form tests", () => {
     currentPassword,
     newPassword,
     confirmPassword,
-    orderConfirmation,
-    orderStatus,
-    orderDelivered,
-    emailNotification,
     submit,
   } = testIds;
 
@@ -66,6 +68,10 @@ describe("Edit profile form tests", () => {
   });
 
   describe("Edit profile fieldset tests", () => {
+    beforeEach(() => {
+      localStorage.clear();
+    });
+
     it("should show errors near required fields on submit if at least 1 field was touched", async () => {
       const { container } = render(<EditProfileForm />);
       const nameInput = getByTestId(container, userName);
@@ -214,6 +220,67 @@ describe("Edit profile form tests", () => {
         await findByText(container, errorMessages.required)
       ).toBeInTheDocument();
     });
+
+    it("should not show errors on submit if every field is filled correctly", async () => {
+      const { container } = render(<EditProfileForm />);
+      const nameInput = getByTestId(container, userName);
+      const storeInput = getByTestId(container, storeName);
+      const locationInput = getByTestId(container, location);
+      const currencyInput = getByTestId(container, currency);
+      const emailInput = getByTestId(container, email);
+      const phoneInput = getByTestId(container, phone);
+      const addressInput = getByTestId(container, address);
+      const submitButton = getByTestId(container, submit);
+
+      await waitFor(() => {
+        fireEvent.input(nameInput, {
+          target: {
+            value: "Name",
+          },
+        });
+        fireEvent.input(storeInput, {
+          target: {
+            value: "Store",
+          },
+        });
+        fireEvent.change(locationInput, {
+          target: {
+            value: "ukraine",
+          },
+        });
+        fireEvent.change(currencyInput, {
+          target: {
+            value: "ukr-hryvnia",
+          },
+        });
+        fireEvent.input(currencyInput, {
+          target: {
+            value: "ukr-hryvnia",
+          },
+        });
+        fireEvent.input(emailInput, {
+          target: {
+            value: "email@email.com",
+          },
+        });
+        fireEvent.input(phoneInput, {
+          target: {
+            value: "0950000000",
+          },
+        });
+        fireEvent.input(addressInput, {
+          target: {
+            value: "Some address",
+          },
+        });
+        fireEvent.submit(submitButton);
+      });
+
+      const errors = queryAllByRole(container, "alert");
+
+      expect(errors).toHaveLength(0);
+      expect(global.fetch).toBeCalled();
+    });
   });
 
   describe("Edit password fieldset tests", () => {
@@ -225,7 +292,7 @@ describe("Edit profile form tests", () => {
       const { container } = render(<EditProfileForm />);
       const newPasswordInput = getByTestId(container, newPassword);
       const submitButton = getByTestId(container, submit);
-      
+
       await waitFor(() => {
         fireEvent.input(newPasswordInput, {
           target: {
@@ -340,6 +407,38 @@ describe("Edit profile form tests", () => {
       expect(
         await findByText(container, errorMessages.required)
       ).toBeInTheDocument();
+    });
+
+    it("should not show errors on submit if every field is filled correctly", async () => {
+      const { container } = render(<EditProfileForm />);
+      const currentPasswordInput = getByTestId(container, currentPassword);
+      const newPasswordInput = getByTestId(container, newPassword);
+      const confirmPasswordInput = getByTestId(container, confirmPassword);
+      const submitButton = getByTestId(container, submit);
+
+      await waitFor(() => {
+        fireEvent.input(currentPasswordInput, {
+          target: {
+            value: "123",
+          },
+        });
+        fireEvent.input(newPasswordInput, {
+          target: {
+            value: "qwerty",
+          },
+        });
+        fireEvent.input(confirmPasswordInput, {
+          target: {
+            value: "qwerty",
+          },
+        });
+        fireEvent.submit(submitButton);
+      });
+
+      const errors = queryAllByRole(container, "alert");
+
+      expect(errors).toHaveLength(0);
+      expect(global.fetch).toBeCalled();
     });
   });
 });
