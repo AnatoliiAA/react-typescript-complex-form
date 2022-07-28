@@ -10,8 +10,7 @@
     "test": "jest src",
     "test:watch": "npm run test -- --watch",
     "start": "webpack serve --mode development --hot",
-    "build": "webpack --mode production",
-    "cypress:open": "cypress open"
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
